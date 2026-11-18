@@ -1,0 +1,128 @@
+/* Fiado Fácil – estilos globais.
+   Acessibilidade (RNF04): toque mínimo de 48px, texto base de 16px+,
+   valores em 24px, contraste acima de 4,5:1 e estados que não dependem só de cor. */
+:root {
+  --verde: #166534;
+  --verde-escuro: #14532d;
+  --verde-claro: #dcfce7;
+  --vermelho: #991b1b;
+  --vermelho-claro: #fef2f2;
+  --texto: #1a1a1a;
+  --texto-sec: #374151;
+  --borda: #4b5563;
+  --linha: #d1d5db;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  font-family: Roboto, "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--texto);
+  background: #fff;
+}
+
+app-root { display: block; max-width: 520px; margin: 0 auto; min-height: 100vh; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.barra {
+  background: var(--verde); color: #fff; min-height: 64px;
+  display: flex; align-items: center; gap: 12px; padding: 8px 16px;
+}
+.barra h1 { font-size: 22px; margin: 0; flex: 1; }
+.barra select, .voltar {
+  min-height: 48px; min-width: 48px; border: 2px solid #fff; border-radius: 10px;
+  background: transparent; color: #fff; font-size: 16px; font-weight: 700;
+  padding: 0 10px; display: inline-flex; align-items: center; text-decoration: none;
+}
+.barra select option { color: var(--texto); }
+
+.aviso-offline {
+  background: #fff7e0; border-bottom: 2px solid #b45309; color: #5a3300;
+  font-weight: 600; padding: 10px 16px;
+}
+
+.conteudo { padding: 16px; padding-bottom: 160px; }
+
+label { display: block; font-weight: 700; margin-bottom: 6px; }
+input, select {
+  width: 100%; min-height: 56px; border: 2px solid var(--borda); border-radius: 10px;
+  font-size: 18px; padding: 0 14px; color: var(--texto); background: #fff;
+}
+.valor-grande { font-size: 24px; font-weight: 800; min-height: 64px; }
+.campo { margin-bottom: 18px; }
+.com-erro input { border: 3px solid #b91c1c; }
+.dica { font-size: 14px; color: var(--texto-sec); margin: 6px 0 0; }
+
+:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+
+.erro {
+  color: var(--vermelho); font-weight: 700; margin: -8px 0 16px;
+}
+.sucesso {
+  background: var(--verde-claro); border: 2px solid var(--verde); border-radius: 12px;
+  color: var(--verde-escuro); font-weight: 700; font-size: 17px; padding: 12px 14px;
+}
+
+.filtros, .linha { display: flex; gap: 10px; margin: 14px 0; }
+.filtro {
+  flex: 1; min-height: 48px; border-radius: 24px; border: 2px solid var(--verde);
+  background: #fff; color: var(--verde); font-size: 16px; font-weight: 700;
+}
+.filtro.ativo { background: var(--verde); color: #fff; }
+
+.total { font-weight: 700; color: var(--texto-sec); }
+.divida { color: var(--vermelho); }
+
+.lista, .historico { list-style: none; margin: 0; padding: 0; }
+.item {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  min-height: 64px; padding: 8px 4px; border-bottom: 1px solid var(--linha);
+  color: inherit; text-decoration: none;
+}
+.nome { display: block; font-size: 18px; font-weight: 600; }
+.sub { display: block; font-size: 14px; color: var(--texto-sec); }
+.valor { font-size: 24px; font-weight: 800; white-space: nowrap; }
+.vazio { color: var(--texto-sec); }
+
+.cartao-cliente {
+  display: block; background: #f0fdf4; border: 2px solid var(--verde);
+  border-radius: 12px; padding: 12px 14px; margin-bottom: 18px;
+}
+.nome-grande { display: block; font-size: 20px; }
+
+.saldo {
+  display: flex; flex-direction: column; align-items: center; padding: 16px;
+  border: 2px solid var(--vermelho); border-radius: 12px; background: var(--vermelho-claro);
+  margin: 14px 0;
+}
+.saldo-titulo { font-weight: 700; color: #7f1d1d; }
+.saldo-valor { font-size: 36px; font-weight: 900; color: var(--vermelho); }
+.saldo.em-dia { border-color: var(--verde); background: var(--verde-claro); }
+.saldo.em-dia .saldo-titulo, .saldo.em-dia .saldo-valor { color: var(--verde-escuro); }
+
+.historico li { padding: 10px 0; border-bottom: 1px solid var(--linha); }
+.etiqueta { font-size: 13px; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; }
+.etiqueta.compra { background: #fee2e2; color: #7f1d1d; }
+.etiqueta.pago { background: var(--verde-claro); color: var(--verde-escuro); }
+
+.pagamento { border: 2px solid var(--linha); border-radius: 12px; padding: 12px; margin-bottom: 16px; }
+.pagamento h2 { margin-top: 0; }
+h2 { font-size: 18px; }
+
+.rodape {
+  position: fixed; bottom: 0; left: 0; right: 0; max-width: 520px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 10px; padding: 12px 16px 20px;
+  background: #fff; border-top: 1px solid var(--linha);
+}
+.rodape .linha { margin: 0; }
+.botao {
+  flex: 1; min-height: 60px; border-radius: 12px; font-size: 19px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none; border: none; cursor: pointer; width: 100%;
+}
+.principal { background: var(--verde); color: #fff; }
+.secundario { background: #fff; color: var(--verde); border: 2px solid var(--verde); }
+.whatsapp { background: #0b6b3a; color: #fff; }
