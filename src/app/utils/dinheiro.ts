@@ -4,7 +4,11 @@
  * Valores em dinheiro são guardados em centavos para evitar erros de arredondamento.
  */
 export function paraCentavos(texto: string): number | null {
-  const limpo = (texto ?? '').trim().replace(/\s/g, '').replace(/^R\$/i, '');
+  let limpo = (texto ?? '').trim().replace(/\s/g, '').replace(/^R\$/i, '');
+  // Aceita ponto como separador decimal (ex.: "12.50"), comum no teclado do celular.
+  if (/^\d+\.\d{1,2}$/.test(limpo)) {
+    limpo = limpo.replace('.', ',');
+  }
   if (!/^\d{1,3}(\.\d{3})*(,\d{1,2})?$|^\d+(,\d{1,2})?$/.test(limpo)) {
     return null;
   }
